@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaPub 开发者在线工具箱，提供 JSON格式化、JSON和Query互转、Properties转JSON/YAML、SQL格式化、进制转换、文件大小换算、颜色转换、CSS渐变生成、全角半角转换、文本排序、HTML标签清理、Meta Tag生成、MIME Type查询、Magic Bytes查询、常用端口查询、HTTP Header和请求方法查询、URL编码解码、正则转义等工具，打开即用，数据仅在浏览器本地处理。">
+    <meta name="keywords" content="JavaPub,在线工具箱,JSON格式化,JSON转Query,Query转JSON,Properties转JSON,Properties转YAML,进制转换,文件大小换算,颜色转换,CSS渐变生成,HTTP Header查询,HTTP请求方法,Magic Bytes,正则转义,URL编码解码,全角半角转换,文本排序,多行文本处理,字符串出现次数,去除HTML标签,Meta Tag生成,MIME Type查询,常用端口,JavaScript转义,JS字符串转义,Hex转文本,文本转Hex,JSON转CSV,CSV转JSON,YAML转JSON,XML转JSON,SQL格式化,Base64,Base58,Base32,Punycode,URL解析,随机密码,随机数,IP转Int,Int转IP,摩斯密码,CRC32,CRC16,MD5,SHA256,代码对比,JWT解析,时间戳转换,UUID生成,正则表达式测试,HTTP状态码,Cron表达式,User-Agent解析,IP信息查询,Markdown预览,Unicode转换,文本去重,大小写转换,字数统计,HTML实体转义,人民币大写">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="JavaPub 开发者在线工具箱">
+    <meta property="og:description" content="JSON格式化、编码加密、代码对比、时间戳转换、JWT解析等常用在线工具，数据仅在浏览器本地处理。">
+    <meta property="og:url" content="https://rodert.github.io/jsonformat/">
+    <link rel="canonical" href="https://rodert.github.io/jsonformat/">
+    <title>JSON格式化、编码加密、代码对比工具</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong>Dev Tools</strong>
+                <small>开发工具箱</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="#data-format">数据格式</a>
+            <a href="#encoding-crypto">编码加密</a>
+            <a href="#dev-debug">开发调试</a>
+            <a href="#ai-tools">AI工具</a>
+        </nav>
+    </header>
+
+    <main class="home-shell">
+        <section class="section-block" aria-labelledby="popular-title">
+            <div class="section-heading">
+                <h2 id="popular-title">热门工具</h2>
+                <p>高频开发场景优先放在首页，减少跳转和查找成本。</p>
+            </div>
+            <div class="tool-grid" id="popular-tools">
+                <a class="tool-card is-live" href="json-format.html" data-tool-card data-keywords="json 格式化 美化 校验 压缩 yaml xml typescript go">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>JSON格式化</h3>
+                    <p>美化、压缩、校验、复制、下载、树形查看。</p>
+                </a>
+                <a class="tool-card is-live" href="imgToWebp.html" data-tool-card data-keywords="图片 webp 转换 压缩 png jpg">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>图片转WebP</h3>
+                    <p>PNG、JPG 等格式转 WebP，支持批量转换和质量调节。</p>
+                </a>
+                <a class="tool-card is-live" href="js-runner.html" data-tool-card data-keywords="javascript js 运行 执行 调试 console">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>JavaScript在线运行</h3>
+                    <p>实时执行JS代码，查看输出结果和错误信息。</p>
+                </a>
+                  <a class="tool-card is-live" href="cron6.html" data-tool-card data-keywords="cron6 quartz 六段 cron 表达式 定时 任务 解析">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>六段Cron解析</h3>
+                    <p>解析 Quartz 6 段 Cron（秒分时日周）。</p>
+                </a>
+                <a class="tool-card is-live" href="json-format.html" data-tool-card data-keywords="json 压缩 minify">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>JSON压缩</h3>
+                    <p>移除空白字符，生成紧凑 JSON 文本。</p>
+                </a>
+                <a class="tool-card is-live" href="convert.html" data-tool-card data-keywords="json yaml xml java go rust csharp ruby 转换">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>JSON转换</h3>
+                    <p>转换为 YAML、XML、Java Bean、Go Struct 等。</p>
+                </a>
+                <a class="tool-card is-live" href="query-string.html" data-tool-card data-keywords="json query url 参数 转换 get">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>JSON和Query互转</h3>
+                    <p>JSON 对象与 URL 查询参数双向转换。</p>
+                </a>
+                <a class="tool-card is-live" href="properties-convert.html" data-tool-card data-keywords="properties json yaml java 配置 转换">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>Properties转换</h3>
+                    <p>Java properties 配置转 JSON 或 YAML。</p>
+                </a>
+                <a class="tool-card is-live" href="radix-convert.html" data-tool-card data-keywords="进制 转换 二进制 八进制 十进制 十六进制 base36">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>进制转换</h3>
+                    <p>2 到 36 进制整数互转，支持 BigInt。</p>
+                </a>
+                <a class="tool-card is-live" href="file-size.html" data-tool-card data-keywords="文件大小 换算 kb mb gb kib mib 字节">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>文件大小换算</h3>
+                    <p>B、KB、MB、GB 与 KiB、MiB、GiB 互转。</p>
+                </a>
+                <a class="tool-card is-live" href="color-convert.html" data-tool-card data-keywords="颜色 转换 hex rgb hsl css 前端">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>颜色转换</h3>
+                    <p>HEX、RGB、HSL 常用 CSS 颜色格式互转。</p>
+                </a>
+                <a class="tool-card is-live" href="css-gradient.html" data-tool-card data-keywords="css 渐变 gradient linear-gradient 颜色 前端">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>CSS渐变生成</h3>
+                    <p>选择颜色和角度生成 linear-gradient 代码。</p>
+                </a>
+                <a class="tool-card is-live" href="meta-tag.html" data-tool-card data-keywords="meta tag seo open graph twitter card 生成">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>Meta Tag生成</h3>
+                    <p>生成 SEO、Open Graph 和 Twitter Card 标签。</p>
+                </a>
+                <a class="tool-card is-live" href="mime-type.html" data-tool-card data-keywords="mime type content-type 文件 类型 扩展名 查询">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>MIME Type查询</h3>
+                    <p>按扩展名或 Content-Type 查询常见 MIME 类型。</p>
+                </a>
+                <a class="tool-card is-live" href="http-header.html" data-tool-card data-keywords="http header 请求头 响应头 cors cache 安全 查询">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>HTTP Header查询</h3>
+                    <p>查询常见请求头、响应头、缓存和跨域 Header。</p>
+                </a>
+                <a class="tool-card is-live" href="http-method.html" data-tool-card data-keywords="http method 请求 方法 get post put patch delete 幂等">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>HTTP请求方法</h3>
+                    <p>查询 HTTP 方法语义、安全性和幂等性。</p>
+                </a>
+                <a class="tool-card is-live" href="magic-bytes.html" data-tool-card data-keywords="magic bytes 文件头 文件格式 签名 hex png pdf zip">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>Magic Bytes查询</h3>
+                    <p>查询常见文件格式的十六进制文件头。</p>
+                </a>
+                <a class="tool-card is-live" href="port-lookup.html" data-tool-card data-keywords="端口 port http https mysql redis 查询 服务">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>常用端口查询</h3>
+                    <p>查询 Web、数据库、缓存和消息队列常用端口。</p>
+                </a>
+                <a class="tool-card is-live" href="crypto.html" data-tool-card data-keywords="base64 编码 解码">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>Base64编码解码</h3>
+                    <p>支持中文内容的 Base64 编码和解码。</p>
+                </a>
+                <a class="tool-card is-live" href="crypto.html" data-tool-card data-keywords="base58 bitcoin btc 编码 解码 地址 短码">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>Base58编码解码</h3>
+                    <p>使用 Bitcoin Base58 字母表，适合地址和短码调试。</p>
+                </a>
+                <a class="tool-card is-live" href="base32.html" data-tool-card data-keywords="base32 rfc4648 编码 解码 密钥 短码">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>Base32编码解码</h3>
+                    <p>按 RFC 4648 字母表进行 Base32 编码和解码。</p>
+                </a>
+                <a class="tool-card is-live" href="morse.html" data-tool-card data-keywords="morse 摩斯 摩尔斯 电码 加密 解密">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>摩斯密码</h3>
+                    <p>英文、数字和常用标点与 Morse 电码互转。</p>
+                </a>
+                <a class="tool-card is-live" href="checksum.html" data-tool-card data-keywords="crc crc32 crc16 checksum 校验和 校验">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>CRC校验计算</h3>
+                    <p>计算 CRC-32、CRC-16/CCITT 和 CRC-16/MODBUS。</p>
+                </a>
+                <a class="tool-card is-live" href="punycode.html" data-tool-card data-keywords="punycode idn 中文域名 xn-- 域名 编码 解码">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>Punycode编码解码</h3>
+                    <p>中文域名、国际化域名和 xn-- 域名互转。</p>
+                </a>
+                <a class="tool-card is-live" href="random-password.html" data-tool-card data-keywords="随机 密码 password 生成 安全 批量">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>随机密码生成</h3>
+                    <p>使用 Crypto API 批量生成安全随机密码。</p>
+                </a>
+                <a class="tool-card is-live" href="js-escape.html" data-tool-card data-keywords="javascript js 字符串 转义 反转义 escape unescape">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>JS字符串转义</h3>
+                    <p>JavaScript 字符串转义和反转义。</p>
+                </a>
+                <a class="tool-card is-live" href="url-encode.html" data-tool-card data-keywords="url 编码 解码 encodeURIComponent encodeURI 参数">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>URL编码解码</h3>
+                    <p>URL 组件编码、整段 URL 编码和解码。</p>
+                </a>
+                <a class="tool-card is-live" href="hex-text.html" data-tool-card data-keywords="hex 十六进制 文本 字符串 utf8 编码 解码">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>Hex文本互转</h3>
+                    <p>UTF-8 文本与十六进制字节字符串互转。</p>
+                </a>
+                <a class="tool-card is-live" href="crypto.html" data-tool-card data-keywords="md5 sha sha1 sha256 加密 哈希 hash">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>MD5/SHA加密</h3>
+                    <p>生成 MD5、SHA-256 等常用摘要。</p>
+                </a>
+                <a class="tool-card is-live" href="timestamp.html" data-tool-card data-keywords="timestamp 时间戳 unix 日期 转换">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>时间戳转换</h3>
+                    <p>Unix 时间戳与本地时间互转。</p>
+                </a>
+                <a class="tool-card is-live" href="diff.html" data-tool-card data-keywords="代码 对比 diff compare 文本">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>代码对比</h3>
+                    <p>左右双栏对比代码或文本差异。</p>
+                </a>
+                <a class="tool-card is-live" href="jwt.html" data-tool-card data-keywords="jwt 解析 token header payload">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>JWT解析</h3>
+                    <p>解析 Header、Payload，辅助接口调试。</p>
+                </a>
+                <a class="tool-card is-live" href="crypto.html" data-tool-card data-keywords="url encode decode 编码 解码">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>URL编码解码</h3>
+                    <p>处理 URL 参数和特殊字符转义。</p>
+                </a>
+                <a class="tool-card is-live" href="money.html" data-tool-card data-keywords="人民币 大写 金额 合同 发票">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>人民币大写</h3>
+                    <p>数字金额转正式人民币大写。</p>
+                </a>
+                <a class="tool-card is-live" href="uuid.html" data-tool-card data-keywords="uuid guid 生成 随机 批量">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>UUID生成</h3>
+                    <p>批量生成 UUID v4，支持 SQL IN 和 JSON 数组。</p>
+                </a>
+                <a class="tool-card is-live" href="sql-format.html" data-tool-card data-keywords="sql 格式化 美化 压缩 mysql postgresql select join where">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>SQL格式化</h3>
+                    <p>美化、压缩 SQL，并转换关键字大小写。</p>
+                </a>
+                <a class="tool-card is-live" href="regex.html" data-tool-card data-keywords="正则 regex regexp 测试 匹配 替换">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>正则表达式测试</h3>
+                    <p>匹配高亮、捕获组查看和替换预览。</p>
+                </a>
+                <a class="tool-card is-live" href="regex-escape.html" data-tool-card data-keywords="正则 regex escape 转义 特殊字符">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>正则转义</h3>
+                    <p>把普通字符串转为可安全匹配的正则文本。</p>
+                </a>
+                <a class="tool-card is-live" href="unicode.html" data-tool-card data-keywords="unicode 编码 转换 中文 码点 实体">
+                    <span class="tool-badge">编码加密</span>
+                    <h3>Unicode编码转换</h3>
+                    <p>中文、Unicode 转义、码点和数字实体互转。</p>
+                </a>
+                <a class="tool-card is-live" href="text-dedupe.html" data-tool-card data-keywords="文本 去重 重复 行 dedupe">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>文本去重</h3>
+                    <p>按行去重，支持忽略大小写、去空行和排序。</p>
+                </a>
+                <a class="tool-card is-live" href="text-sort.html" data-tool-card data-keywords="文本 排序 列表 行 随机 打乱 行号">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>文本排序</h3>
+                    <p>按行排序、随机打乱、反转和添加行号。</p>
+                </a>
+                <a class="tool-card is-live" href="line-tools.html" data-tool-card data-keywords="多行 文本 拼接 前缀 后缀 引号 csv">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>多行文本处理</h3>
+                    <p>添加前后缀、包裹引号并按分隔符拼接。</p>
+                </a>
+                <a class="tool-card is-live" href="string-count.html" data-tool-card data-keywords="字符串 出现 次数 统计 关键词 正则 匹配">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>出现次数统计</h3>
+                    <p>统计关键词或正则表达式的匹配次数。</p>
+                </a>
+                <a class="tool-card is-live" href="html-strip.html" data-tool-card data-keywords="html 标签 清理 去除 转文本 提取链接">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>HTML标签清理</h3>
+                    <p>HTML 转纯文本，并支持提取链接。</p>
+                </a>
+                <a class="tool-card is-live" href="fullwidth-halfwidth.html" data-tool-card data-keywords="全角 半角 中文 标点 字符 转换">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>全角半角转换</h3>
+                    <p>全角字母、数字、空格和标点与半角互转。</p>
+                </a>
+                <a class="tool-card is-live" href="word-count.html" data-tool-card data-keywords="字数 统计 字符 单词 行数 段落">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>字数统计</h3>
+                    <p>统计字符、单词、行数、段落和阅读时长。</p>
+                </a>
+                <a class="tool-card is-live" href="html-entity.html" data-tool-card data-keywords="html 实体 转义 反转义 escape unescape">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>HTML实体转义</h3>
+                    <p>HTML 特殊字符转义、反转义和数字实体。</p>
+                </a>
+                <a class="tool-card is-live" href="http-status.html" data-tool-card data-keywords="http 状态码 status code 404 500 接口">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>HTTP状态码查询</h3>
+                    <p>查询 1xx 到 5xx 常见状态码含义。</p>
+                </a>
+                <a class="tool-card is-live" href="cron.html" data-tool-card data-keywords="cron crontab 表达式 定时 任务 解析">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>Cron表达式解析</h3>
+                    <p>解析 5 段 Cron 并预览未来执行时间。</p>
+                </a>
+                <a class="tool-card is-live" href="user-agent.html" data-tool-card data-keywords="user-agent ua 浏览器 系统 设备 解析">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>User-Agent解析</h3>
+                    <p>识别浏览器、系统、设备类型和渲染引擎。</p>
+                </a>
+                <a class="tool-card is-live" href="url-parser.html" data-tool-card data-keywords="url 解析 query 参数 hash 链接 地址">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>URL地址解析</h3>
+                    <p>拆解协议、域名、路径、查询参数和 Hash。</p>
+                </a>
+                <a class="tool-card is-live" href="random-number.html" data-tool-card data-keywords="随机数 random number 整数 小数 批量">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>随机数生成</h3>
+                    <p>按范围批量生成随机整数或小数。</p>
+                </a>
+                <a class="tool-card is-live" href="ip-convert.html" data-tool-card data-keywords="ip ipv4 int 整数 转换 数字">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>IPv4整数互转</h3>
+                    <p>IPv4 地址与无符号 32 位整数互转。</p>
+                </a>
+                <a class="tool-card is-live" href="markdown-preview.html" data-tool-card data-keywords="markdown md 预览 html 文档 readme">
+                    <span class="tool-badge">文本处理</span>
+                    <h3>Markdown预览</h3>
+                    <p>左右双栏编辑预览，支持复制 HTML。</p>
+                </a>
+                <a class="tool-card is-live" href="json-csv.html" data-tool-card data-keywords="json csv 转换 表格 导出 excel">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>JSON转CSV</h3>
+                    <p>对象数组转 CSV，支持嵌套字段扁平化。</p>
+                </a>
+                <a class="tool-card is-live" href="csv-json.html" data-tool-card data-keywords="csv json 转换 表格 excel tsv">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>CSV转JSON</h3>
+                    <p>CSV、TSV 或分号表格转格式化 JSON。</p>
+                </a>
+                <a class="tool-card is-live" href="yaml-json.html" data-tool-card data-keywords="yaml yml json 转换 配置">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>YAML转JSON</h3>
+                    <p>常见 YAML 配置片段转格式化 JSON。</p>
+                </a>
+                <a class="tool-card is-live" href="xml-json.html" data-tool-card data-keywords="xml json 转换 节点 属性">
+                    <span class="tool-badge">数据格式</span>
+                    <h3>XML转JSON</h3>
+                    <p>XML 节点、属性和文本内容转 JSON。</p>
+                </a>
+                <a class="tool-card is-live" href="ip-lookup.html" data-tool-card data-keywords="ip ipv4 ipv6 查询 内网 私有 回环">
+                    <span class="tool-badge">开发调试</span>
+                    <h3>IP信息查询</h3>
+                    <p>校验 IPv4/IPv6 并识别常见地址类型。</p>
+                </a>
+            </div>
+            <div id="no-results" class="empty-results" hidden>没有找到匹配工具，试试 json、csv、yaml、sql、ip、jwt、cron。</div>
+        </section>
+
+        <section class="section-block" aria-labelledby="category-title">
+            <div class="section-heading">
+                <h2 id="category-title">工具分类</h2>
+                <p>按场景组织工具入口，后续每个工具可拆成独立 SEO 页面。</p>
+            </div>
+            <div class="category-grid">
+                <article class="category-panel" id="data-format">
+                    <h3>数据格式</h3>
+                    <div class="link-list">
+                        <a href="json-format.html">JSON格式化</a>
+                        <a href="json-format.html">JSON压缩</a>
+                        <a href="json-format.html">JSON校验</a>
+                        <a href="json-format.html">JSON转YAML</a>
+                        <a href="json-format.html">JSON转XML</a>
+                        <a href="query-string.html">JSON和Query互转</a>
+                        <a href="properties-convert.html">Properties转JSON/YAML</a>
+                        <a href="json-csv.html">JSON转CSV</a>
+                        <a href="csv-json.html">CSV转JSON</a>
+                        <a href="yaml-json.html">YAML转JSON</a>
+                        <a href="xml-json.html">XML转JSON</a>
+                    </div>
+                </article>
+                <article class="category-panel" id="encoding-crypto">
+                    <h3>编码加密</h3>
+                    <div class="link-list">
+                        <a href="crypto.html">Base64编码解码</a>
+                        <a href="crypto.html">Base58编码解码</a>
+                        <a href="base32.html">Base32编码解码</a>
+                        <a href="punycode.html">Punycode编码解码</a>
+                        <a href="url-encode.html">URL编码解码</a>
+                        <a href="unicode.html">Unicode编码转换</a>
+                        <a href="morse.html">摩斯密码</a>
+                        <a href="checksum.html">CRC校验计算</a>
+                        <a href="random-password.html">随机密码生成</a>
+                        <a href="js-escape.html">JS字符串转义</a>
+                        <a href="hex-text.html">Hex文本互转</a>
+                        <a href="crypto.html">MD5加密</a>
+                        <a href="crypto.html">SHA1/SHA256加密</a>
+                        <a href="crypto.html">AES加密解密</a>
+                        <a href="crypto.html">RSA加密解密</a>
+                        <a href="jwt.html">JWT解析</a>
+                    </div>
+                </article>
+                <article class="category-panel" id="dev-debug">
+                    <h3>开发调试</h3>
+                    <div class="link-list">
+                        <a href="timestamp.html">时间戳转换</a>
+                        <a href="uuid.html">UUID生成</a>
+                        <a href="sql-format.html">SQL格式化</a>
+                        <a href="regex.html">正则表达式测试</a>
+                        <a href="regex-escape.html">正则转义</a>
+                        <a href="radix-convert.html">进制转换</a>
+                        <a href="file-size.html">文件大小换算</a>
+                        <a href="color-convert.html">颜色转换</a>
+                        <a href="css-gradient.html">CSS渐变生成</a>
+                        <a href="meta-tag.html">Meta Tag生成</a>
+                        <a href="mime-type.html">MIME Type查询</a>
+                        <a href="magic-bytes.html">Magic Bytes查询</a>
+                        <a href="port-lookup.html">常用端口查询</a>
+                        <a href="http-header.html">HTTP Header查询</a>
+                        <a href="http-method.html">HTTP请求方法</a>
+                        <a href="diff.html">代码对比</a>
+                        <a href="http-status.html">HTTP状态码查询</a>
+                        <a href="cron.html">Cron表达式解析</a>
+                        <a href="cron6.html">六段Cron解析</a>
+                        <a href="user-agent.html">User-Agent解析</a>
+                        <a href="url-parser.html">URL地址解析</a>
+                        <a href="ip-lookup.html">IP信息查询</a>
+                        <a href="ip-convert.html">IPv4整数互转</a>
+                        <a href="random-number.html">随机数生成</a>
+                        <a href="imgToWebp.html">图片转WebP</a>
+                        <a href="js-runner.html">JavaScript在线运行</a>
+                    </div>
+                </article>
+                <article class="category-panel" id="text-tools">
+                    <h3>文本处理</h3>
+                    <div class="link-list">
+                        <a href="text-dedupe.html">文本去重</a>
+                        <a href="text-sort.html">文本排序</a>
+                        <a href="line-tools.html">多行文本处理</a>
+                        <a href="string-count.html">出现次数统计</a>
+                        <a href="html-strip.html">HTML标签清理</a>
+                        <a href="fullwidth-halfwidth.html">全角半角转换</a>
+                        <a href="case-convert.html">大小写转换</a>
+                        <a href="word-count.html">字数统计</a>
+                        <a href="money.html">人民币大写</a>
+                        <a href="markdown-preview.html">Markdown预览</a>
+                        <a href="html-entity.html">HTML实体转义</a>
+                    </div>
+                </article>
+                <article class="category-panel" id="ai-tools">
+                    <h3>AI 工具</h3>
+                    <div class="link-list">
+                        <a href="prompt-format.html">Prompt格式化</a>
+                        <a href="openai-request.html">OpenAI请求体格式化</a>
+                        <a href="openai-image.html">OpenAI生图调试</a>
+                        <a href="claude-request.html">Claude请求体格式化</a>
+                        <a href="token-estimate.html">Token估算</a>
+                        <a href="api-error.html">API错误码解释</a>
+                        <a href="model-price.html">模型价格换算</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="trust-strip">
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+            <span>适合处理接口响应、调试数据、临时文本和常用编码转换。</span>
+        </section>
+    </main>
+
+    <footer id="about" class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+        </div>
+    </footer>
+
+    <script src="js/home.js"></script>
+</body>
+</html>

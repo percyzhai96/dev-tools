@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线代码对比工具，支持文本和多种编程语言差异对比、语法高亮、忽略空白、忽略大小写、同步滚动和文件上传，数据仅在浏览器本地处理。">
+    <meta name="keywords" content="代码对比,在线Diff,文本对比,JSON对比,代码差异比较,Diff工具">
+    <title>代码对比工具 - 在线文本Diff和代码差异比较</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="vendor/highlight/atom-one-dark.min.css">
+</head>
+<body class="tool-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong></strong>
+                <small>代码对比工具</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="index.html">首页</a>
+            <a href="json-format.html">JSON格式化</a>
+            <a href="convert.html">JSON转换</a>
+            <a href="crypto.html">编码加密</a>
+            <a href="regex.html">正则测试</a>
+            
+            
+        </nav>
+    </header>
+
+    <main class="tool-shell">
+        <section class="tool-hero">
+            <div>
+                <p class="eyebrow">开发调试类工具</p>
+                <h1>代码对比工具</h1>
+                <p>左右双栏对比代码或文本差异，支持语法高亮、忽略空白、忽略大小写、文件上传和同步滚动。</p>
+            </div>
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+        </section>
+
+        <section class="utility-workbench">
+            <div class="diff-controls">
+                <div class="control-group">
+                    <label for="language-select">代码语言</label>
+                    <select id="language-select">
+                        <option value="plaintext">纯文本</option>
+                        <option value="javascript" selected>JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="c">C</option>
+                        <option value="css">CSS</option>
+                        <option value="html">HTML</option>
+                        <option value="xml">XML</option>
+                        <option value="json">JSON</option>
+                        <option value="sql">SQL</option>
+                        <option value="bash">Bash</option>
+                        <option value="go">Go</option>
+                        <option value="rust">Rust</option>
+                        <option value="php">PHP</option>
+                        <option value="ruby">Ruby</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label><input type="checkbox" id="ignore-whitespace" checked> 忽略空白</label>
+                </div>
+                <div class="control-group">
+                    <label><input type="checkbox" id="ignore-case"> 忽略大小写</label>
+                </div>
+                <div class="control-group">
+                    <label><input type="checkbox" id="sync-scroll" checked> 同步滚动</label>
+                </div>
+                <div class="control-group">
+                    <button class="primary" id="compare-btn">开始对比</button>
+                    <button class="secondary" id="sample-btn">示例</button>
+                    <button class="secondary" id="clear-btn">清空</button>
+                </div>
+            </div>
+
+            <div class="diff-stats" id="diff-stats" style="display: none;">
+                <span class="stat-item"><span class="stat-label">新增</span><span class="stat-value added" id="stat-added">0</span></span>
+                <span class="stat-item"><span class="stat-label">删除</span><span class="stat-value removed" id="stat-removed">0</span></span>
+                <span class="stat-item"><span class="stat-label">修改</span><span class="stat-value changed" id="stat-changed">0</span></span>
+                <span class="stat-item"><span class="stat-label">相同</span><span class="stat-value unchanged" id="stat-unchanged">0</span></span>
+            </div>
+
+            <div class="diff-container">
+                <div class="diff-panel">
+                    <div class="panel-header">
+                        <h3>原始代码</h3>
+                        <div>
+                            <button class="copy-panel-btn" data-panel="original" title="复制">复制</button>
+                            <button class="upload-btn" data-panel="original" title="上传文件">
+                                <input type="file" class="file-input" data-panel="original" accept=".txt,.js,.py,.java,.cpp,.c,.css,.html,.xml,.json,.sql,.sh,.go,.rs,.php,.rb">
+                                上传
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <textarea id="code-original" class="code-input" spellcheck="false" placeholder="在此输入或粘贴原始代码..."></textarea>
+                        <div class="diff-viewer" id="diff-viewer-original"></div>
+                    </div>
+                </div>
+
+                <div class="diff-panel">
+                    <div class="panel-header">
+                        <h3>对比代码</h3>
+                        <div>
+                            <button class="copy-panel-btn" data-panel="modified" title="复制">复制</button>
+                            <button class="upload-btn" data-panel="modified" title="上传文件">
+                                <input type="file" class="file-input" data-panel="modified" accept=".txt,.js,.py,.java,.cpp,.c,.css,.html,.xml,.json,.sql,.sh,.go,.rs,.php,.rb">
+                                上传
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-content">
+                        <textarea id="code-modified" class="code-input" spellcheck="false" placeholder="在此输入或粘贴要对比的代码..."></textarea>
+                        <div class="diff-viewer" id="diff-viewer-modified"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="json-message">双击对比结果区域可回到编辑状态。所有对比过程均在当前浏览器内完成。</div>
+        </section>
+
+        <section class="section-block seo-content">
+            <h2>在线代码差异对比和文本 Diff</h2>
+            <p>代码对比工具适合比较接口返回、配置文件、脚本片段和普通文本差异。输入内容不会上传服务器，文件读取和差异计算都在本地浏览器完成。</p>
+            <div class="related-tools">
+                <a href="json-format.html">JSON格式化</a>
+                <a href="convert.html">JSON转换</a>
+                <a href="regex.html">正则测试</a>
+                <a href="html-entity.html">HTML实体转义</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+            <p>适合代码审查、接口调试和配置变更检查。</p>
+        </div>
+        <div class="footer-links">
+            <a href="json-format.html">JSON格式化</a>
+            <a href="convert.html">JSON转换</a>
+            <a href="regex.html">正则测试</a>
+        </div>
+    </footer>
+
+    <script src="vendor/highlight/highlight.min.js"></script>
+    <script src="js/diff.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线JSON转换工具，支持将JSON转换为Java实体、Go Struct、C#实体、Rust Struct、Ruby类、XML和YAML，数据仅在浏览器本地处理。">
+    <meta name="keywords" content="JSON转换,JSON转Java,JSON转Go Struct,JSON转C#,JSON转Rust,JSON转Ruby,JSON转XML,JSON转YAML">
+    <title>JSON转换工具 - 在线生成Java、Go、C#、Rust实体</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="vendor/highlight/atom-one-dark.min.css">
+</head>
+<body class="tool-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong></strong>
+                <small>JSON转换工具</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="index.html">首页</a>
+            <a href="json-format.html">JSON格式化</a>
+            <a href="json-csv.html">JSON转CSV</a>
+            <a href="csv-json.html">CSV转JSON</a>
+            <a href="diff.html">代码对比</a>
+            
+            
+        </nav>
+    </header>
+
+    <main class="tool-shell">
+        <section class="tool-hero">
+            <div>
+                <p class="eyebrow">数据格式类工具</p>
+                <h1>JSON转换工具</h1>
+                <p>将 JSON 转换为 Java、Go、C#、Rust、Ruby、XML 和 YAML，适合接口字段建模和临时数据结构生成。</p>
+            </div>
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+        </section>
+
+        <section class="utility-workbench">
+            <div class="utility-grid two-column">
+                <article class="utility-panel">
+                    <h2>输入 JSON</h2>
+                    <textarea id="json-input" class="utility-textarea" spellcheck="false" placeholder="请在此处粘贴 JSON 数据..."></textarea>
+                    <label for="class-name">类名/结构体名（可选）</label>
+                    <input type="text" id="class-name" placeholder="例如：User、Product，留空使用 Root">
+                    <label for="package-name">包名/命名空间（可选，仅 Java/C#）</label>
+                    <input type="text" id="package-name" placeholder="例如：com.example.model">
+                    <div class="button-group compact">
+                        <button class="primary" onclick="convertToJava()">Java实体</button>
+                        <button class="secondary" onclick="convertToGolang()">Go Struct</button>
+                        <button class="secondary" onclick="convertToCSharp()">C#实体</button>
+                        <button class="secondary" onclick="convertToRust()">Rust Struct</button>
+                        <button class="secondary" onclick="convertToRuby()">Ruby类</button>
+                        <button class="secondary" onclick="convertToXML()">XML</button>
+                        <button class="secondary" onclick="convertToYAML()">YAML</button>
+                        <button class="secondary" onclick="loadSample()">示例</button>
+                        <button class="secondary" onclick="clearAll()">清空</button>
+                    </div>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>转换结果</h2>
+                    <div class="button-group compact">
+                        <button class="secondary" onclick="copyResult()">复制结果</button>
+                    </div>
+                    <pre class="utility-code"><code id="output-result" class="language-java"></code></pre>
+                    <p class="muted">自动识别字符串、数字、布尔、数组和嵌套对象。生成结果建议结合项目规范再做命名和类型调整。</p>
+                </article>
+            </div>
+            <div class="json-message">支持复杂 JSON 结构转换，所有生成过程均在当前浏览器内完成。</div>
+        </section>
+
+        <section class="section-block seo-content">
+            <h2>在线 JSON 转实体类和结构体</h2>
+            <p>JSON 转换工具可以快速把接口响应、配置样例和调试数据转换成常见语言的数据结构，减少手写字段和类型声明的重复工作。</p>
+            <div class="related-tools">
+                <a href="json-format.html">JSON格式化</a>
+                <a href="json-csv.html">JSON转CSV</a>
+                <a href="csv-json.html">CSV转JSON</a>
+                <a href="diff.html">代码对比</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+            <p>适合接口调试、代码生成和数据格式转换场景。</p>
+        </div>
+        <div class="footer-links">
+            <a href="json-format.html">JSON格式化</a>
+            <a href="crypto.html">编码加密</a>
+            <a href="diff.html">代码对比</a>
+        </div>
+    </footer>
+
+    <script src="vendor/highlight/highlight.min.js"></script>
+    <script src="js/convert.js"></script>
+</body>
+</html>

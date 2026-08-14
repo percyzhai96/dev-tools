@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线图片转WebP工具，支持PNG、JPG、JPEG、GIF等格式转换为WebP格式，可调节压缩质量，数据仅在浏览器本地处理。">
+    <meta name="keywords" content="图片转WebP,WebP转换,图片压缩,PNG转WebP,JPG转WebP">
+    <title>图片转WebP工具 - 在线图片格式转换</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="tool-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong></strong>
+                <small>图片转WebP</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="index.html">首页</a>
+            <a href="color-convert.html">颜色转换</a>
+            <a href="css-gradient.html">CSS渐变</a>
+            <a href="json-format.html">JSON格式化</a>
+            <a href="convert.html">格式转换</a>
+        </nav>
+    </header>
+
+    <main class="tool-shell">
+        <section class="tool-hero">
+            <div>
+                <p class="eyebrow">图片处理工具</p>
+                <h1>图片转WebP工具</h1>
+                <p>支持PNG、JPG、JPEG、GIF等格式转换为WebP格式，可调节压缩质量，减小文件体积，提升网页加载速度。</p>
+            </div>
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+        </section>
+
+        <section class="utility-workbench">
+            <div class="utility-grid two-column">
+                <article class="utility-panel">
+                    <h2>上传图片</h2>
+                    <div class="upload-area" id="upload-area">
+                        <input type="file" id="file-input" accept="image/png,image/jpeg,image/gif,image/webp" multiple>
+                        <div class="upload-content">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>点击或拖拽图片到此处</p>
+                            <p class="upload-hint">支持 PNG、JPG、JPEG、GIF 格式</p>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="quality-slider">压缩质量: <span id="quality-value">80</span>%</label>
+                        <input type="range" id="quality-slider" min="1" max="100" value="80">
+                    </div>
+
+                    <div class="button-group compact">
+                        <button id="convert-btn" class="primary">转换</button>
+                        <button id="clear-btn" class="secondary">清空</button>
+                    </div>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>转换结果</h2>
+                    <div id="result-area" class="result-area">
+                        <div class="empty-result">
+                            <p>暂无转换结果</p>
+                            <p class="empty-hint">上传图片后点击转换按钮</p>
+                        </div>
+                    </div>
+                    <div class="button-group compact">
+                        <button id="download-all-btn" class="secondary" disabled>下载全部</button>
+                    </div>
+                </article>
+            </div>
+            <div id="message" class="json-message">等待上传图片。</div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+            <p>支持批量转换，可单独调节每张图片的压缩质量，实时预览转换效果。</p>
+        </div>
+        <div class="footer-links">
+            <a href="color-convert.html">颜色转换</a>
+            <a href="css-gradient.html">CSS渐变</a>
+            <a href="json-format.html">JSON格式化</a>
+        </div>
+    </footer>
+
+    <script src="js/img-to-webp.js"></script>
+</body>
+</html>

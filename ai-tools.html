@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaPub AI工具入口，提供Prompt格式化、OpenAI请求体格式化、Claude请求体格式化、OpenAI生图调试、Token估算、API错误码解释和模型价格换算等独立工具。">
+    <meta name="keywords" content="AI工具,Prompt格式化,OpenAI请求体,Claude请求体,OpenAI生图,Token估算,API错误码,模型价格换算">
+    <title>AI工具导航 - Prompt、OpenAI、Claude、Token和价格工具</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="tool-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong></strong>
+                <small>AI工具导航</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="index.html">首页</a>
+            <a href="json-format.html">JSON</a>
+            <a href="crypto.html">编码加密</a>
+            <a href="jwt.html">JWT解析</a>
+           
+        </nav>
+    </header>
+
+    <main class="tool-shell">
+        <section class="tool-hero">
+            <div>
+                <p class="eyebrow">AI 工具</p>
+                <h1>AI工具导航</h1>
+                <p>按用途拆分的 AI 开发调试工具，每个页面只处理一个明确任务。</p>
+            </div>
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+        </section>
+
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>AI 工具</h2>
+                <p>选择一个具体场景进入对应工具。</p>
+            </div>
+            <div class="tool-grid">
+                <a class="tool-card is-live" href="prompt-format.html">
+                    <span class="tool-badge">Prompt</span>
+                    <h3>Prompt格式化</h3>
+                    <p>把角色、任务、上下文和输出要求整理成结构化 Prompt。</p>
+                </a>
+                <a class="tool-card is-live" href="openai-request.html">
+                    <span class="tool-badge">OpenAI</span>
+                    <h3>OpenAI请求体格式化</h3>
+                    <p>生成 Responses API 和 Chat Completions 请求 JSON。</p>
+                </a>
+                <a class="tool-card is-live" href="openai-image.html">
+                    <span class="tool-badge">OpenAI</span>
+                    <h3>OpenAI生图调试</h3>
+                    <p>调试图片生成接口，生成 curl 并预览返回图片。</p>
+                </a>
+                <a class="tool-card is-live" href="claude-request.html">
+                    <span class="tool-badge">Claude</span>
+                    <h3>Claude请求体格式化</h3>
+                    <p>生成 Claude Messages API 请求 JSON。</p>
+                </a>
+                <a class="tool-card is-live" href="token-estimate.html">
+                    <span class="tool-badge">Token</span>
+                    <h3>Token估算</h3>
+                    <p>离线粗估文本、Prompt 和接口消息的 token 数。</p>
+                </a>
+                <a class="tool-card is-live" href="api-error.html">
+                    <span class="tool-badge">排错</span>
+                    <h3>API错误码解释</h3>
+                    <p>查询常见 AI API 状态码和错误关键词的处理建议。</p>
+                </a>
+                <a class="tool-card is-live" href="model-price.html">
+                    <span class="tool-badge">成本</span>
+                    <h3>模型价格换算</h3>
+                    <p>按输入输出 token 和模型单价估算美元与人民币费用。</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="section-block seo-content">
+            <h2>在线 AI 开发调试工具</h2>
+            <p>AI 相关工具按功能拆分为独立页面，避免在一个页面里混合多个流程。所有文本处理均在浏览器本地完成。</p>
+            <div class="related-tools">
+                <a href="json-format.html">JSON格式化</a>
+                <a href="jwt.html">JWT解析</a>
+                <a href="crypto.html">编码加密</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+            <p>适合 Prompt 整理、AI API 调试和模型成本预估。</p>
+        </div>
+    </footer>
+
+</body>
+</html>

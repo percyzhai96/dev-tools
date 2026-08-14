@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线编码加密工具，支持Base64、Base58、URL编码、MD5、SHA1、SHA256、SHA512、HMAC-SHA256、AES-GCM、RSA-OAEP，数据仅在浏览器本地处理。">
+    <meta name="keywords" content="Base64编码解码,Base58编码解码,URL编码解码,MD5,SHA1,SHA256,SHA512,HMAC,AES-GCM,RSA加密解密,在线加密工具">
+    <title>编码加密工具 - Base64、Base58、URL、哈希、AES-GCM、RSA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="tool-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong></strong>
+                <small>编码加密工具</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="index.html">首页</a>
+            <a href="unicode.html">Unicode</a>
+            <a href="jwt.html">JWT解析</a>
+            <a href="json-format.html">JSON</a>
+            <a href="regex.html">正则测试</a>
+            
+            
+        </nav>
+    </header>
+
+    <main class="tool-shell">
+        <section class="tool-hero">
+            <div>
+                <p class="eyebrow">编码加密类工具</p>
+                <h1>编码加密工具</h1>
+                <p>Base64、Base58、URL 编码、哈希摘要、HMAC、AES-GCM 和 RSA-OAEP，全部在浏览器本地完成。</p>
+            </div>
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+        </section>
+
+        <section class="utility-workbench">
+            <div class="utility-grid two-column">
+                <article class="utility-panel">
+                    <h2>Base64 编码/解码</h2>
+                    <textarea id="base64-input" class="utility-textarea" spellcheck="false" placeholder="输入要编码或解码的文本..."></textarea>
+                    <div class="button-group compact">
+                        <button class="primary" onclick="base64Encode()">Base64 编码</button>
+                        <button class="secondary" onclick="base64Decode()">Base64 解码</button>
+                        <button class="secondary" onclick="clearBase64()">清空</button>
+                        <button class="secondary" onclick="copyById('base64-output')">复制结果</button>
+                    </div>
+                    <textarea id="base64-output" class="utility-textarea output small-output" spellcheck="false" readonly></textarea>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>Base58 编码/解码</h2>
+                    <textarea id="base58-input" class="utility-textarea" spellcheck="false" placeholder="输入要编码的文本，或粘贴 Base58 字符串..."></textarea>
+                    <div class="button-group compact">
+                        <button class="primary" onclick="base58Encode()">Base58 编码</button>
+                        <button class="secondary" onclick="base58Decode()">Base58 解码</button>
+                        <button class="secondary" onclick="clearBase58()">清空</button>
+                        <button class="secondary" onclick="copyById('base58-output')">复制结果</button>
+                    </div>
+                    <textarea id="base58-output" class="utility-textarea output small-output" spellcheck="false" readonly></textarea>
+                    <p class="muted">使用 Bitcoin Base58 字母表，不包含 0、O、I、l，适合地址、短码和标识符调试。</p>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>URL 编码/解码</h2>
+                    <textarea id="url-input" class="utility-textarea" spellcheck="false" placeholder="输入 URL 或文本..."></textarea>
+                    <div class="button-group compact">
+                        <button class="primary" onclick="urlEncode()">URL 编码</button>
+                        <button class="secondary" onclick="urlDecode()">URL 解码</button>
+                        <button class="secondary" onclick="clearURL()">清空</button>
+                        <button class="secondary" onclick="copyById('url-output')">复制结果</button>
+                    </div>
+                    <textarea id="url-output" class="utility-textarea output small-output" spellcheck="false" readonly></textarea>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>哈希摘要</h2>
+                    <textarea id="hash-input" class="utility-textarea" spellcheck="false" placeholder="输入要生成摘要的文本..."></textarea>
+                    <div class="button-group compact">
+                        <button class="secondary" onclick="generateHash('MD5')">MD5</button>
+                        <button class="secondary" onclick="generateHash('SHA-1')">SHA1</button>
+                        <button class="primary" onclick="generateHash('SHA-256')">SHA256</button>
+                        <button class="secondary" onclick="generateHash('SHA-512')">SHA512</button>
+                        <button class="secondary" onclick="clearHash()">清空</button>
+                    </div>
+                    <textarea id="hash-output" class="utility-textarea output small-output" spellcheck="false" readonly></textarea>
+                    <p class="muted">MD5/SHA1 已不适合密码存储，仅建议用于兼容旧系统、校验或调试。</p>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>HMAC-SHA256</h2>
+                    <label for="hmac-key">密钥</label>
+                    <input type="password" id="hmac-key" placeholder="输入 HMAC 密钥">
+                    <label for="hmac-input">消息</label>
+                    <textarea id="hmac-input" class="utility-textarea" spellcheck="false" placeholder="输入要签名的消息..."></textarea>
+                    <div class="button-group compact">
+                        <button class="primary" onclick="generateHmac()">生成 HMAC</button>
+                        <button class="secondary" onclick="clearHmac()">清空</button>
+                        <button class="secondary" onclick="copyById('hmac-output')">复制结果</button>
+                    </div>
+                    <textarea id="hmac-output" class="utility-textarea output small-output" spellcheck="false" readonly></textarea>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>AES-GCM 加密/解密</h2>
+                    <label for="aes-key">口令（至少8个字符）</label>
+                    <input type="password" id="aes-key" placeholder="输入加密口令">
+                    <label for="aes-input">明文或加密包</label>
+                    <textarea id="aes-input" class="utility-textarea" spellcheck="false" placeholder="加密时输入明文；解密时输入本工具生成的加密包..."></textarea>
+                    <div class="button-group compact">
+                        <button class="primary" onclick="aesEncrypt()">AES-GCM 加密</button>
+                        <button class="secondary" onclick="aesDecrypt()">AES-GCM 解密</button>
+                        <button class="secondary" onclick="clearAES()">清空</button>
+                        <button class="secondary" onclick="copyById('aes-output')">复制结果</button>
+                    </div>
+                    <textarea id="aes-output" class="utility-textarea output" spellcheck="false" readonly></textarea>
+                    <p class="muted">使用 Web Crypto API、PBKDF2 派生密钥、随机 salt 和 IV。请妥善保存口令，加密包无法脱离口令解密。</p>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>RSA-OAEP 加密/解密</h2>
+                    <label for="rsa-public-key">公钥 PEM</label>
+                    <textarea id="rsa-public-key" class="utility-textarea key-area" spellcheck="false" placeholder="点击生成密钥对，或粘贴 RSA 公钥 PEM..."></textarea>
+                    <label for="rsa-private-key">私钥 PEM</label>
+                    <textarea id="rsa-private-key" class="utility-textarea key-area" spellcheck="false" placeholder="点击生成密钥对，或粘贴 RSA 私钥 PEM..."></textarea>
+                    <label for="rsa-input">明文或密文</label>
+                    <textarea id="rsa-input" class="utility-textarea" spellcheck="false" placeholder="加密时输入短文本；解密时输入 Base64 密文..."></textarea>
+                    <div class="button-group compact">
+                        <button class="secondary" onclick="generateRsaKeys()">生成密钥对</button>
+                        <button class="primary" onclick="rsaEncrypt()">RSA 加密</button>
+                        <button class="secondary" onclick="rsaDecrypt()">RSA 解密</button>
+                        <button class="secondary" onclick="clearRSA()">清空</button>
+                        <button class="secondary" onclick="copyById('rsa-output')">复制结果</button>
+                    </div>
+                    <textarea id="rsa-output" class="utility-textarea output" spellcheck="false" readonly></textarea>
+                    <p class="muted">RSA-OAEP 适合加密短文本或对称密钥，不适合直接加密大文件或长文本。</p>
+                </article>
+            </div>
+            <div id="crypto-message" class="json-message">等待输入内容。</div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+            <p>所有编码、摘要和加解密操作均在当前浏览器本地执行。</p>
+        </div>
+        <div class="footer-links">
+            <a href="jwt.html">JWT解析</a>
+            <a href="unicode.html">Unicode转换</a>
+            <a href="html-entity.html">HTML实体转义</a>
+        </div>
+    </footer>
+
+    <script src="js/crypto.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线六段Cron表达式解析工具，支持Quartz 6段Cron表达式（秒 分 时 日 月 周）字段解释、常见示例、未来执行时间预览，数据仅在浏览器本地处理。">
+    <meta name="keywords" content="六段Cron表达式,Quartz Cron,Cron在线工具,定时任务表达式,Crontab解析">
+    <title>六段Cron表达式解析工具 - 在线预览定时任务执行时间</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="tool-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong></strong>
+                <small>六段Cron表达式解析</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="index.html">首页</a>
+            <a href="cron.html">5段Cron</a>
+            <a href="timestamp.html">时间戳</a>
+            <a href="regex.html">正则测试</a>
+            <a href="json-format.html">JSON</a>
+        </nav>
+    </header>
+
+    <main class="tool-shell">
+        <section class="tool-hero">
+            <div>
+                <p class="eyebrow">开发调试类工具</p>
+                <h1>六段Cron表达式解析工具</h1>
+                <p>解析 Quartz 风格的 6 段 Cron 表达式（秒 分 时 日 月 周），展示字段含义并预览未来执行时间。</p>
+            </div>
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+        </section>
+
+        <section class="utility-workbench">
+            <div class="utility-grid two-column">
+                <article class="utility-panel">
+                    <h2>表达式</h2>
+                    <input id="cron6-input" type="text" value="0 */5 * * * ?" placeholder="例如：0 */5 * * * ?">
+                    <div class="button-group compact">
+                        <button id="parse-cron6-btn" class="primary">解析</button>
+                        <button data-cron6-sample="0 */5 * * * ?" class="secondary">每5分钟</button>
+                        <button data-cron6-sample="0 0 9 * * MON-FRI" class="secondary">工作日9点</button>
+                        <button data-cron6-sample="0 30 2 1 * ?" class="secondary">每月1日2:30</button>
+                        <button data-cron6-sample="0 0 0 L * ?" class="secondary">每月最后一天</button>
+                    </div>
+                    <p class="muted">支持 Quartz 风格 6 段格式：秒(0-59) 分(0-59) 时(0-23) 日(1-31) 月(1-12) 周(1-7或MON-SUN)。</p>
+                    <div id="cron6-description" class="cron-description"></div>
+                    <div id="cron6-fields" class="result-list"></div>
+                </article>
+                <article class="utility-panel">
+                    <h2>未来执行时间</h2>
+                    <div id="cron6-next" class="result-list"></div>
+                </article>
+            </div>
+            <div id="cron6-message" class="json-message">等待解析六段Cron表达式。</div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+            <p>支持秒字段、问号(?)、L(最后)、W(最近工作日)、#(第几个星期)等Quartz扩展语法。</p>
+        </div>
+        <div class="footer-links">
+            <a href="cron.html">5段Cron解析</a>
+            <a href="timestamp.html">时间戳转换</a>
+            <a href="regex.html">正则测试</a>
+        </div>
+    </footer>
+
+    <script src="js/cronstrue.min.js"></script>
+    <script src="js/cron6.js"></script>
+</body>
+</html>

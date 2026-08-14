@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线JavaScript代码运行工具，支持实时执行JS代码、查看输出结果、错误提示，数据仅在浏览器本地处理。">
+    <meta name="keywords" content="JavaScript在线运行,JS执行器,在线代码编辑器,JavaScript调试,JS Playground">
+    <title>JavaScript在线运行工具 - 实时代码执行和调试</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="tool-page">
+    <header class="site-header">
+        <a href="index.html" class="brand">
+            <div class="brand-mark">
+                <img src="./img/hx.png" style="width: 36px;border-radius: 8px;" alt="">
+            </div>
+            <span>
+                <strong></strong>
+                <small>JavaScript在线运行</small>
+            </span>
+        </a>
+        <nav class="top-nav" aria-label="主导航">
+            <a href="index.html">首页</a>
+            <a href="regex.html">正则测试</a>
+            <a href="diff.html">代码对比</a>
+            <a href="json-format.html">JSON格式化</a>
+            <a href="timestamp.html">时间戳</a>
+        </nav>
+    </header>
+
+    <main class="tool-shell">
+        <section class="tool-hero">
+            <div>
+                <p class="eyebrow">开发调试类工具</p>
+                <h1>JavaScript在线运行工具</h1>
+                <p>实时执行JavaScript代码，查看输出结果和错误信息，支持console.log、console.error等调试方法。</p>
+            </div>
+            <strong>数据仅在浏览器本地处理，不上传服务器。</strong>
+        </section>
+
+        <section class="utility-workbench">
+            <div class="utility-grid two-column">
+                <article class="utility-panel">
+                    <h2>代码编辑器</h2>
+                    <textarea id="js-code" class="utility-textarea" spellcheck="false" placeholder="// 在此输入JavaScript代码
+console.log('Hello, World!');
+
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(n => n * 2);
+console.log('Doubled:', doubled);
+
+// 计算斐波那契数列
+function fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log('Fibonacci(10):', fibonacci(10));"></textarea>
+                    <div class="button-group compact">
+                        <button id="run-js-btn" class="primary">运行代码</button>
+                        <button id="sample-js-btn" class="secondary">示例代码</button>
+                        <button id="clear-js-btn" class="secondary">清空</button>
+                        <button id="copy-js-btn" class="secondary">复制代码</button>
+                    </div>
+                </article>
+
+                <article class="utility-panel">
+                    <h2>运行结果</h2>
+                    <div id="js-output" class="output-box">
+                        <div class="output-placeholder">等待运行代码...</div>
+                    </div>
+                    <div class="button-group compact">
+                        <button id="clear-output-btn" class="secondary">清空输出</button>
+                        <button id="copy-output-btn" class="secondary">复制结果</button>
+                    </div>
+                </article>
+            </div>
+            <div id="js-message" class="json-message">等待输入JavaScript代码。</div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div>
+            <strong>作者：一溪风月</strong>
+            <p>JavaScript代码在浏览器本地执行，支持ES6+语法，注意避免死循环和内存泄漏。</p>
+        </div>
+        <div class="footer-links">
+            <a href="regex.html">正则测试</a>
+            <a href="diff.html">代码对比</a>
+            <a href="json-format.html">JSON格式化</a>
+        </div>
+    </footer>
+
+    <script src="js/js-runner.js"></script>
+</body>
+</html>
