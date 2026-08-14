@@ -1,37 +1,175 @@
-# jsonFormat
+# Dev Tools 开发工具箱
 
-#### 介绍
-常用开发工具集纯前端实现。
+一个纯前端实现的开发者在线工具箱，聚合了数据格式转换、编码加密、开发调试、文本处理和 AI 辅助等常用能力。项目采用静态页面方式组织，打开即可使用，绝大多数工具的数据处理都在浏览器本地完成，不依赖后端服务。
 
-#### 软件架构
-软件架构说明
+## 项目简介
 
+`Dev Tools` 面向日常开发、测试、接口联调和文本处理场景，提供一组轻量、直接、可离线部署的网页工具。首页按使用频率和功能分类展示工具入口，适合个人自用，也适合作为静态站点部署到 GitHub Pages、Nginx 或其他静态托管平台。
 
-#### 安装教程
+## 功能特性
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+- 纯前端静态实现，部署简单
+- 数据默认在浏览器本地处理，更适合临时调试和敏感内容处理
+- 工具覆盖面广，包含数据格式、编码加密、开发调试、文本处理、AI 工具等分类
+- 每个工具独立页面，便于后续扩展和 SEO 优化
+- 无需注册登录，打开页面即可使用
 
-#### 使用说明
+## 主要工具分类
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 1. 数据格式
 
-#### 参与贡献
+- `JSON格式化` / `JSON压缩` / `JSON校验`
+- `JSON和Query互转`
+- `Properties转JSON/YAML`
+- `JSON转CSV`
+- `CSV转JSON`
+- `YAML转JSON`
+- `XML转JSON`
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### 2. 编码加密
 
+- `Base64编码解码`
+- `Base58编码解码`
+- `Base32编码解码`
+- `Punycode编码解码`
+- `URL编码解码`
+- `Unicode编码转换`
+- `摩斯密码`
+- `CRC校验计算`
+- `随机密码生成`
+- `JS字符串转义`
+- `Hex文本互转`
+- `MD5 / SHA 摘要`
+- `JWT解析`
 
-#### 特技
+### 3. 开发调试
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+- `时间戳转换`
+- `UUID生成`
+- `SQL格式化`
+- `正则表达式测试`
+- `正则转义`
+- `进制转换`
+- `文件大小换算`
+- `颜色转换`
+- `CSS渐变生成`
+- `Meta Tag生成`
+- `MIME Type查询`
+- `Magic Bytes查询`
+- `常用端口查询`
+- `HTTP Header查询`
+- `HTTP请求方法`
+- `代码对比`
+- `HTTP状态码查询`
+- `Cron表达式解析`
+- `六段Cron解析`
+- `User-Agent解析`
+- `URL地址解析`
+- `IP信息查询`
+- `IPv4整数互转`
+- `随机数生成`
+- `图片转WebP`
+- `JavaScript在线运行`
+
+### 4. 文本处理
+
+- `文本去重`
+- `文本排序`
+- `多行文本处理`
+- `出现次数统计`
+- `HTML标签清理`
+- `全角半角转换`
+- `大小写转换`
+- `字数统计`
+- `人民币大写`
+- `Markdown预览`
+- `HTML实体转义`
+
+### 5. AI 工具
+
+- `Prompt格式化`
+- `OpenAI请求体格式化`
+- `OpenAI生图调试`
+- `Claude请求体格式化`
+- `Token估算`
+- `API错误码解释`
+- `模型价格换算`
+
+## 项目结构
+
+```text
+.
+├─ index.html                # 首页
+├─ *.html                    # 各工具独立页面
+├─ css/
+│  └─ style.css              # 全局样式
+├─ js/                       # 各工具对应脚本
+├─ img/                      # 图片资源
+├─ vendor/                   # 第三方静态资源
+└─ scripts/                  # 辅助脚本
+```
+
+## 使用方式
+
+### 本地打开
+
+直接使用浏览器打开 `index.html` 即可体验大部分功能。
+
+### 本地静态服务运行
+
+如果部分功能依赖更稳定的本地访问环境，建议使用静态服务器启动，例如：
+
+```bash
+# Python
+python -m http.server 8080
+
+# Node.js
+npx serve .
+```
+
+启动后访问：`http://localhost:8080` 或对应终端输出地址。
+
+## 部署方式
+
+本项目为纯静态站点，可直接部署到以下平台：
+
+- GitHub Pages
+- Gitee Pages
+- Nginx
+- Vercel
+- Netlify
+- 任意静态文件服务器
+
+## 适用场景
+
+- 接口调试与请求参数处理
+- JSON / YAML / XML / CSV 等格式互转
+- 编码、解码、摘要和校验计算
+- 文本清洗、排序、统计与格式整理
+- 前端开发中的颜色、渐变、Meta、HTTP、正则等辅助查询
+- AI 接口请求体调试与辅助处理
+
+## 技术说明
+
+- 以 `HTML + CSS + JavaScript` 为主
+- 页面按工具拆分，结构清晰，便于维护
+- 适合继续扩展为更完整的开发者工具导航站
+
+## 注意事项
+
+- 项目中的大多数工具在浏览器本地处理数据，不会主动上传到服务器
+- 若后续新增第三方接口能力，请根据实际实现补充隐私与网络请求说明
+- 建议使用现代浏览器获得更好的兼容性体验
+
+## 贡献方式
+
+欢迎提交 Issue 或 Pull Request 来完善工具能力与页面体验。
+
+1. Fork 本仓库
+2. 新建功能分支
+3. 提交修改
+4. 发起 Pull Request
+
+## License
+
+如需开源发布，建议补充明确的许可证文件，例如 `MIT`。
